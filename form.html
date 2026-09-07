@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        form {
+            width: 350px;
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registrationForm">
+    <input type="text" id="regName" placeholder="Enter Name">
+    <input type="email" id="regEmail" placeholder="Enter Email">
+    <input type="password" id="regPassword" placeholder="Enter Password">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+    <button type="submit">Register</button>
+</form>
+
+
+<h2>Login Form</h2>
+
+<form id="loginForm">
+    <input type="text" id="loginEmail" placeholder="Enter Email">
+    <input type="password" id="loginPassword" placeholder="Enter Password">
+
+    <button type="submit">Login</button>
+</form>
+
+
+<h2>Feedback Form</h2>
+
+<form id="feedbackForm">
+    <input type="text" id="feedbackName" placeholder="Enter Name">
+
+    <textarea id="feedback" placeholder="Enter your feedback"></textarea>
+
+    <button type="submit">Submit Feedback</button>
+</form>
+
+
+<script>
+
+    // Registration Form Validation
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("regName").value;
+        let email = document.getElementById("regEmail").value;
+        let password = document.getElementById("regPassword").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (name == "") {
+            alert("Please enter your name");
+        }
+        else if (email == "") {
+            alert("Please enter your email");
+        }
+        else if (password == "") {
+            alert("Please enter your password");
+        }
+        else if (password.length < 6) {
+            alert("Password must contain at least 6 characters");
+        }
+        else if (password != confirmPassword) {
+            alert("Passwords do not match");
+        }
+        else {
+            alert("Registration successful!");
+        }
+
+    });
+
+
+    // Login Form Validation
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let email = document.getElementById("loginEmail").value;
+        let password = document.getElementById("loginPassword").value;
+
+        if (email == "") {
+            alert("Please enter your email");
+        }
+        else if (password == "") {
+            alert("Please enter your password");
+        }
+        else {
+            alert("Login successful!");
+        }
+
+    });
+
+
+    // Feedback Form Validation
+    document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("feedbackName").value;
+        let feedback = document.getElementById("feedback").value;
+
+        if (name == "") {
+            alert("Please enter your name");
+        }
+        else if (feedback == "") {
+            alert("Please enter your feedback");
+        }
+        else {
+            alert("Feedback submitted successfully!");
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
